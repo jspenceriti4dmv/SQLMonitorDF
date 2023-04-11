@@ -9,322 +9,95 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "ID",
-				"type": "bigint",
-				"precision": 19
+				"name": "DCBL_ID",
+				"type": "int",
+				"precision": 10
 			},
 			{
-				"name": "ServerName",
-				"type": "nvarchar"
-			},
-			{
-				"name": "CheckDate",
-				"type": "datetimeoffset",
-				"scale": 7
-			},
-			{
-				"name": "Version",
-				"type": "nvarchar"
-			},
-			{
-				"name": "QueryType",
-				"type": "nvarchar"
-			},
-			{
-				"name": "Warnings",
+				"name": "DCBL_Server",
 				"type": "varchar"
 			},
 			{
-				"name": "DatabaseName",
-				"type": "nvarchar"
+				"name": "DCBL_database_name",
+				"type": "varchar"
 			},
 			{
-				"name": "SerialDesiredMemory",
-				"type": "float",
-				"precision": 15
-			},
-			{
-				"name": "SerialRequiredMemory",
-				"type": "float",
-				"precision": 15
-			},
-			{
-				"name": "AverageCPU",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "TotalCPU",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "PercentCPUByType",
-				"type": "money",
-				"precision": 19,
-				"scale": 4
-			},
-			{
-				"name": "CPUWeight",
-				"type": "money",
-				"precision": 19,
-				"scale": 4
-			},
-			{
-				"name": "AverageDuration",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "TotalDuration",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "DurationWeight",
-				"type": "money",
-				"precision": 19,
-				"scale": 4
-			},
-			{
-				"name": "PercentDurationByType",
-				"type": "money",
-				"precision": 19,
-				"scale": 4
-			},
-			{
-				"name": "AverageReads",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "TotalReads",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "ReadWeight",
-				"type": "money",
-				"precision": 19,
-				"scale": 4
-			},
-			{
-				"name": "PercentReadsByType",
-				"type": "money",
-				"precision": 19,
-				"scale": 4
-			},
-			{
-				"name": "AverageWrites",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "TotalWrites",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "WriteWeight",
-				"type": "money",
-				"precision": 19,
-				"scale": 4
-			},
-			{
-				"name": "PercentWritesByType",
-				"type": "money",
-				"precision": 19,
-				"scale": 4
-			},
-			{
-				"name": "ExecutionCount",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "ExecutionWeight",
-				"type": "money",
-				"precision": 19,
-				"scale": 4
-			},
-			{
-				"name": "PercentExecutionsByType",
-				"type": "money",
-				"precision": 19,
-				"scale": 4
-			},
-			{
-				"name": "ExecutionsPerMinute",
-				"type": "money",
-				"precision": 19,
-				"scale": 4
-			},
-			{
-				"name": "PlanCreationTime",
+				"name": "DCBL_backup_start_date",
 				"type": "datetime",
 				"precision": 23,
 				"scale": 3
 			},
 			{
-				"name": "PlanCreationTimeHours",
-				"type": "int",
-				"precision": 10
-			},
-			{
-				"name": "LastExecutionTime",
+				"name": "DCBL_backup_finish_date",
 				"type": "datetime",
 				"precision": 23,
 				"scale": 3
 			},
 			{
-				"name": "LastCompletionTime",
+				"name": "DCBL_type",
+				"type": "varchar"
+			},
+			{
+				"name": "DCBL_typeDefined",
+				"type": "varchar"
+			},
+			{
+				"name": "DCBL_time_in_seconds",
+				"type": "varchar"
+			},
+			{
+				"name": "DCBL_expiration_date",
 				"type": "datetime",
 				"precision": 23,
 				"scale": 3
 			},
 			{
-				"name": "PlanHandle",
-				"type": "varbinary"
-			},
-			{
-				"name": "Remove Plan Handle From Cache",
+				"name": "DCBL_backup_size",
 				"type": "varchar"
 			},
 			{
-				"name": "SqlHandle",
-				"type": "varbinary"
-			},
-			{
-				"name": "Remove SQL Handle From Cache",
+				"name": "DCBL_logical_device_name",
 				"type": "varchar"
 			},
 			{
-				"name": "SQL Handle More Info",
+				"name": "DCBL_physical_device_name",
 				"type": "varchar"
 			},
 			{
-				"name": "QueryHash",
+				"name": "DCBL_backupset_name",
 				"type": "varchar"
 			},
 			{
-				"name": "Query Hash More Info",
+				"name": "DCBL_description",
 				"type": "varchar"
 			},
 			{
-				"name": "QueryPlanHash",
+				"name": "DCBL_backup_set_uuid",
 				"type": "varchar"
 			},
 			{
-				"name": "StatementStartOffset",
-				"type": "int",
-				"precision": 10
+				"name": "DCBL_backup_set_id",
+				"type": "varchar"
 			},
 			{
-				"name": "StatementEndOffset",
-				"type": "int",
-				"precision": 10
+				"name": "DCBL_first_lsn",
+				"type": "varchar"
 			},
 			{
-				"name": "PlanGenerationNum",
-				"type": "bigint",
-				"precision": 19
+				"name": "DCBL_last_lsn",
+				"type": "varchar"
 			},
 			{
-				"name": "MinReturnedRows",
-				"type": "bigint",
-				"precision": 19
+				"name": "DCBL_checkpoint_lsn",
+				"type": "varchar"
 			},
 			{
-				"name": "MaxReturnedRows",
-				"type": "bigint",
-				"precision": 19
+				"name": "DCBL_database_backup_lsn",
+				"type": "varchar"
 			},
 			{
-				"name": "AverageReturnedRows",
-				"type": "money",
-				"precision": 19,
-				"scale": 4
-			},
-			{
-				"name": "TotalReturnedRows",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "QueryText",
-				"type": "nvarchar"
-			},
-			{
-				"name": "NumberOfPlans",
-				"type": "int",
-				"precision": 10
-			},
-			{
-				"name": "NumberOfDistinctPlans",
-				"type": "int",
-				"precision": 10
-			},
-			{
-				"name": "MinGrantKB",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "MaxGrantKB",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "MinUsedGrantKB",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "MaxUsedGrantKB",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "PercentMemoryGrantUsed",
-				"type": "money",
-				"precision": 19,
-				"scale": 4
-			},
-			{
-				"name": "AvgMaxMemoryGrant",
-				"type": "money",
-				"precision": 19,
-				"scale": 4
-			},
-			{
-				"name": "MinSpills",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "MaxSpills",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "TotalSpills",
-				"type": "bigint",
-				"precision": 19
-			},
-			{
-				"name": "AvgSpills",
-				"type": "money",
-				"precision": 19,
-				"scale": 4
-			},
-			{
-				"name": "QueryPlanCost",
-				"type": "float",
-				"precision": 15
-			},
-			{
-				"name": "JoinKey",
-				"type": "nvarchar"
+				"name": "DCBL_recovery_model",
+				"type": "varchar"
 			}
 		],
 		"typeProperties": {
