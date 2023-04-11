@@ -1,0 +1,335 @@
+{
+	"name": "sqlmonitorsvr_DBAMaint_BlitzWhoResultsOutput",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "ServerName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CheckDate",
+				"type": "datetimeoffset",
+				"scale": 7
+			},
+			{
+				"name": "Version",
+				"type": "nvarchar"
+			},
+			{
+				"name": "QueryType",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Warnings",
+				"type": "varchar"
+			},
+			{
+				"name": "DatabaseName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SerialDesiredMemory",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "SerialRequiredMemory",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "AverageCPU",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "TotalCPU",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "PercentCPUByType",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "CPUWeight",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "AverageDuration",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "TotalDuration",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "DurationWeight",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "PercentDurationByType",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "AverageReads",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "TotalReads",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "ReadWeight",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "PercentReadsByType",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "AverageWrites",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "TotalWrites",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "WriteWeight",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "PercentWritesByType",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "ExecutionCount",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "ExecutionWeight",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "PercentExecutionsByType",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "ExecutionsPerMinute",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "PlanCreationTime",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "PlanCreationTimeHours",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "LastExecutionTime",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "LastCompletionTime",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "PlanHandle",
+				"type": "varbinary"
+			},
+			{
+				"name": "Remove Plan Handle From Cache",
+				"type": "varchar"
+			},
+			{
+				"name": "SqlHandle",
+				"type": "varbinary"
+			},
+			{
+				"name": "Remove SQL Handle From Cache",
+				"type": "varchar"
+			},
+			{
+				"name": "SQL Handle More Info",
+				"type": "varchar"
+			},
+			{
+				"name": "QueryHash",
+				"type": "varchar"
+			},
+			{
+				"name": "Query Hash More Info",
+				"type": "varchar"
+			},
+			{
+				"name": "QueryPlanHash",
+				"type": "varchar"
+			},
+			{
+				"name": "StatementStartOffset",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "StatementEndOffset",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PlanGenerationNum",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "MinReturnedRows",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "MaxReturnedRows",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "AverageReturnedRows",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "TotalReturnedRows",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "QueryText",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NumberOfPlans",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "NumberOfDistinctPlans",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "MinGrantKB",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "MaxGrantKB",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "MinUsedGrantKB",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "MaxUsedGrantKB",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "PercentMemoryGrantUsed",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "AvgMaxMemoryGrant",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "MinSpills",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "MaxSpills",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "TotalSpills",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "AvgSpills",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "QueryPlanCost",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "JoinKey",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BlitzWhoResultsOutput"
+		}
+	}
+}
