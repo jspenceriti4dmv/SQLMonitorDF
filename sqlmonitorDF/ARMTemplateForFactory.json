@@ -1,0 +1,1325 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "sqlmonitorDF"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/sqlmonitorsvr_DBAMaint_BlitzCacheResultsOutput')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ID",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "ServerName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CheckDate",
+						"type": "datetimeoffset",
+						"scale": 7
+					},
+					{
+						"name": "Version",
+						"type": "nvarchar"
+					},
+					{
+						"name": "QueryType",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Warnings",
+						"type": "varchar"
+					},
+					{
+						"name": "DatabaseName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SerialDesiredMemory",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "SerialRequiredMemory",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "AverageCPU",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "TotalCPU",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "PercentCPUByType",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "CPUWeight",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "AverageDuration",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "TotalDuration",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "DurationWeight",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "PercentDurationByType",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "AverageReads",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "TotalReads",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "ReadWeight",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "PercentReadsByType",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "AverageWrites",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "TotalWrites",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "WriteWeight",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "PercentWritesByType",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "ExecutionCount",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "ExecutionWeight",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "PercentExecutionsByType",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "ExecutionsPerMinute",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "PlanCreationTime",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "PlanCreationTimeHours",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "LastExecutionTime",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "LastCompletionTime",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "PlanHandle",
+						"type": "varbinary"
+					},
+					{
+						"name": "Remove Plan Handle From Cache",
+						"type": "varchar"
+					},
+					{
+						"name": "SqlHandle",
+						"type": "varbinary"
+					},
+					{
+						"name": "Remove SQL Handle From Cache",
+						"type": "varchar"
+					},
+					{
+						"name": "SQL Handle More Info",
+						"type": "varchar"
+					},
+					{
+						"name": "QueryHash",
+						"type": "varchar"
+					},
+					{
+						"name": "Query Hash More Info",
+						"type": "varchar"
+					},
+					{
+						"name": "QueryPlanHash",
+						"type": "varchar"
+					},
+					{
+						"name": "StatementStartOffset",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "StatementEndOffset",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "PlanGenerationNum",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "MinReturnedRows",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "MaxReturnedRows",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "AverageReturnedRows",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "TotalReturnedRows",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "QueryText",
+						"type": "nvarchar"
+					},
+					{
+						"name": "NumberOfPlans",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "NumberOfDistinctPlans",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "MinGrantKB",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "MaxGrantKB",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "MinUsedGrantKB",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "MaxUsedGrantKB",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "PercentMemoryGrantUsed",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "AvgMaxMemoryGrant",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "MinSpills",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "MaxSpills",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "TotalSpills",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "AvgSpills",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "QueryPlanCost",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "JoinKey",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BlitzCacheResultsOutput"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sqlmonitorsvr_DBAMaint_BlitzFirstOutput')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ServerName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CheckDate",
+						"type": "datetimeoffset",
+						"scale": 7
+					},
+					{
+						"name": "CheckID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Priority",
+						"type": "tinyint",
+						"precision": 3
+					},
+					{
+						"name": "FindingsGroup",
+						"type": "varchar"
+					},
+					{
+						"name": "Finding",
+						"type": "varchar"
+					},
+					{
+						"name": "URL",
+						"type": "varchar"
+					},
+					{
+						"name": "Details",
+						"type": "nvarchar"
+					},
+					{
+						"name": "QueryText",
+						"type": "nvarchar"
+					},
+					{
+						"name": "StartTime",
+						"type": "datetimeoffset",
+						"scale": 7
+					},
+					{
+						"name": "LoginName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "NTUserName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OriginalLoginName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ProgramName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "HostName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "DatabaseID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DatabaseName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OpenTransactionCount",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DetailsInt",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "QueryHash",
+						"type": "binary"
+					},
+					{
+						"name": "JoinKey",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BlitzFirstOutput"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sqlmonitorsvr_DBAMaint_BlitzResultsOutput')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ServerName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CheckDate",
+						"type": "datetimeoffset",
+						"scale": 7
+					},
+					{
+						"name": "Priority",
+						"type": "tinyint",
+						"precision": 3
+					},
+					{
+						"name": "FindingsGroup",
+						"type": "varchar"
+					},
+					{
+						"name": "Finding",
+						"type": "varchar"
+					},
+					{
+						"name": "DatabaseName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "URL",
+						"type": "varchar"
+					},
+					{
+						"name": "Details",
+						"type": "nvarchar"
+					},
+					{
+						"name": "QueryPlanFiltered",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CheckID",
+						"type": "int",
+						"precision": 10
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BlitzResultsOutput"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sqlmonitorsvr_DBAMaint_BlitzWhoResultsOutput')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ServerName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CheckDate",
+						"type": "datetimeoffset",
+						"scale": 7
+					},
+					{
+						"name": "elapsed_time",
+						"type": "varchar"
+					},
+					{
+						"name": "session_id",
+						"type": "smallint",
+						"precision": 5
+					},
+					{
+						"name": "database_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "query_text",
+						"type": "nvarchar"
+					},
+					{
+						"name": "outer_command",
+						"type": "nvarchar"
+					},
+					{
+						"name": "cached_parameter_info",
+						"type": "nvarchar"
+					},
+					{
+						"name": "live_parameter_info",
+						"type": "nvarchar"
+					},
+					{
+						"name": "query_cost",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "wait_info",
+						"type": "nvarchar"
+					},
+					{
+						"name": "wait_resource",
+						"type": "nvarchar"
+					},
+					{
+						"name": "top_session_waits",
+						"type": "nvarchar"
+					},
+					{
+						"name": "blocking_session_id",
+						"type": "smallint",
+						"precision": 5
+					},
+					{
+						"name": "open_transaction_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "is_implicit_transaction",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "nt_domain",
+						"type": "nvarchar"
+					},
+					{
+						"name": "host_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "login_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "nt_user_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "program_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "fix_parameter_sniffing",
+						"type": "nvarchar"
+					},
+					{
+						"name": "client_interface_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "login_time",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "start_time",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "request_time",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "request_cpu_time",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "request_logical_reads",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "request_writes",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "request_physical_reads",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "session_cpu",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "session_logical_reads",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "session_physical_reads",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "session_writes",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "tempdb_allocations_mb",
+						"type": "decimal",
+						"precision": 38,
+						"scale": 2
+					},
+					{
+						"name": "memory_usage",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "estimated_completion_time",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "percent_complete",
+						"type": "real",
+						"precision": 7
+					},
+					{
+						"name": "deadlock_priority",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "transaction_isolation_level",
+						"type": "varchar"
+					},
+					{
+						"name": "degree_of_parallelism",
+						"type": "smallint",
+						"precision": 5
+					},
+					{
+						"name": "last_dop",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "min_dop",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "max_dop",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "last_grant_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "min_grant_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "max_grant_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "last_used_grant_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "min_used_grant_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "max_used_grant_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "last_ideal_grant_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "min_ideal_grant_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "max_ideal_grant_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "last_reserved_threads",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "min_reserved_threads",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "max_reserved_threads",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "last_used_threads",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "min_used_threads",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "max_used_threads",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "grant_time",
+						"type": "varchar"
+					},
+					{
+						"name": "requested_memory_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "grant_memory_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "is_request_granted",
+						"type": "varchar"
+					},
+					{
+						"name": "required_memory_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "query_memory_grant_used_memory_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "ideal_memory_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "is_small",
+						"type": "bit"
+					},
+					{
+						"name": "timeout_sec",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "resource_semaphore_id",
+						"type": "smallint",
+						"precision": 5
+					},
+					{
+						"name": "wait_order",
+						"type": "varchar"
+					},
+					{
+						"name": "wait_time_ms",
+						"type": "varchar"
+					},
+					{
+						"name": "next_candidate_for_memory_grant",
+						"type": "varchar"
+					},
+					{
+						"name": "target_memory_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "max_target_memory_kb",
+						"type": "varchar"
+					},
+					{
+						"name": "total_memory_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "available_memory_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "granted_memory_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "query_resource_semaphore_used_memory_kb",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "grantee_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "waiter_count",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "timeout_error_count",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "forced_grant_count",
+						"type": "varchar"
+					},
+					{
+						"name": "workload_group_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "resource_pool_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "context_info",
+						"type": "varchar"
+					},
+					{
+						"name": "query_hash",
+						"type": "binary"
+					},
+					{
+						"name": "query_plan_hash",
+						"type": "binary"
+					},
+					{
+						"name": "sql_handle",
+						"type": "varbinary"
+					},
+					{
+						"name": "plan_handle",
+						"type": "varbinary"
+					},
+					{
+						"name": "statement_start_offset",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "statement_end_offset",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "JoinKey",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BlitzWhoResultsOutput"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sqlmonitorsvr_DBAMaint_BlitzindexResultsOutput')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "run_id",
+						"type": "uniqueidentifier"
+					},
+					{
+						"name": "run_datetime",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "server_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "priority",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "finding",
+						"type": "nvarchar"
+					},
+					{
+						"name": "database_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "details",
+						"type": "nvarchar"
+					},
+					{
+						"name": "index_definition",
+						"type": "nvarchar"
+					},
+					{
+						"name": "secret_columns",
+						"type": "nvarchar"
+					},
+					{
+						"name": "index_usage_summary",
+						"type": "nvarchar"
+					},
+					{
+						"name": "index_size_summary",
+						"type": "nvarchar"
+					},
+					{
+						"name": "more_info",
+						"type": "nvarchar"
+					},
+					{
+						"name": "url",
+						"type": "nvarchar"
+					},
+					{
+						"name": "create_tsql",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BlitzindexResultsOutput"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sqlmonitorsvr_DBAMaint_DBA_Capture_Errors')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "DBE_ID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DBE_DB_Name",
+						"type": "varchar"
+					},
+					{
+						"name": "DBE_InstanceName",
+						"type": "varchar"
+					},
+					{
+						"name": "DBE_ServerName",
+						"type": "varchar"
+					},
+					{
+						"name": "DBE_UserName",
+						"type": "varchar"
+					},
+					{
+						"name": "DBE_E_Number",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DBE_E_State",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DBE_E_Severity",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DBE_E_Line",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DBE_E_Procedure",
+						"type": "varchar"
+					},
+					{
+						"name": "DBE__Message",
+						"type": "varchar"
+					},
+					{
+						"name": "DBE_E_DateTime",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "DBE_BackupStatement",
+						"type": "varchar"
+					},
+					{
+						"name": "DBE_BackupPath",
+						"type": "varchar"
+					},
+					{
+						"name": "DBE_CreatedBy",
+						"type": "varchar"
+					},
+					{
+						"name": "DBE_CreatedOn",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "DBE_NotificationEmailSent",
+						"type": "bit"
+					},
+					{
+						"name": "DBE_DB_ID_Number",
+						"type": "int",
+						"precision": 10
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DBA_Capture_Errors"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sqlmonitorsvr_DBAMaint_DBA_Custom_Backup_Log')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "DCBL_ID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DCBL_Server",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_database_name",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_backup_start_date",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "DCBL_backup_finish_date",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "DCBL_type",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_typeDefined",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_time_in_seconds",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_expiration_date",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "DCBL_backup_size",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_logical_device_name",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_physical_device_name",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_backupset_name",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_description",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_backup_set_uuid",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_backup_set_id",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_first_lsn",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_last_lsn",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_checkpoint_lsn",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_database_backup_lsn",
+						"type": "varchar"
+					},
+					{
+						"name": "DCBL_recovery_model",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DBA_Custom_Backup_Log"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureSqlDatabase1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
