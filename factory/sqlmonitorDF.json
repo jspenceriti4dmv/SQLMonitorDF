@@ -1,0 +1,9 @@
+{
+	"name": "sqlmonitorDF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "9d6a3375-7c00-4562-b164-d7f8ed83f2d9",
+		"tenantId": "7b8cd2a7-4a97-48b8-b4c3-469e6f115c86"
+	}
+}
